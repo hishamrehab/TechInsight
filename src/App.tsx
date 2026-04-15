@@ -6,6 +6,7 @@ import {
   ArticlesPage,
   CategoryDetailPage,
   CategoriesPage,
+  GenerationPage,
   GetStartedPage,
   HomePage,
   NotFoundPage,
@@ -21,6 +22,7 @@ function App() {
         <Route path="categories" element={<CategoriesPage />} />
         <Route path="categories/:slug" element={<CategoryDetailPage />} />
         <Route path="about" element={<AboutPage />} />
+        <Route path="generation" element={<GenerationPage />} />
         <Route path="get-started" element={<GetStartedPage />} />
       </Route>
       <Route path="home" element={<Navigate to="/" replace />} />

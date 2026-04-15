@@ -6,7 +6,7 @@ const links = [
   { to: '/articles', label: 'Articles' },
   { to: '/categories', label: 'Categories' },
   { to: '/about', label: 'About' },
-  { to: '/get-started', label: 'Get Started' },
+  { to: '/generation', label: 'Generation' },
 ]
 
 export function Navbar() {
