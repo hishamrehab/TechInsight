@@ -29,10 +29,10 @@ export function HeroSection() {
             <NavLink to="/articles" className="btn-primary !px-9 !py-4">
               Start Reading
             </NavLink>
-            <button className="btn-secondary !px-9 !py-4">
-              <span className="text-lg">▶</span>
-              Watch Video
-            </button>
+            <NavLink to="/get-started" className="btn-secondary !px-9 !py-4">
+              <span className="text-lg">⚡</span>
+              Open Product Demo
+            </NavLink>
           </div>
         </div>
 

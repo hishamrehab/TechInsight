@@ -1,4 +1,38 @@
+import { type FormEvent, useState } from 'react'
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const STORAGE_KEY = 'techinsight-newsletter-subscribers'
+
 export function NewsletterSection() {
+  const [email, setEmail] = useState('')
+  const [error, setError] = useState('')
+  const [successMessage, setSuccessMessage] = useState('')
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const normalizedEmail = email.trim().toLowerCase()
+
+    if (!EMAIL_REGEX.test(normalizedEmail)) {
+      setSuccessMessage('')
+      setError('Please enter a valid email address.')
+      return
+    }
+
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY)
+      const existingSubscribers = raw ? (JSON.parse(raw) as string[]) : []
+      const uniqueSubscribers = Array.from(new Set([...existingSubscribers, normalizedEmail]))
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(uniqueSubscribers))
+      setError('')
+      setSuccessMessage('Subscribed successfully. You are now on the weekly update list.')
+      setEmail('')
+    } catch {
+      setSuccessMessage('')
+      setError('Subscription could not be saved right now. Please try again.')
+    }
+  }
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-24">
       <div className="absolute inset-0 opacity-20">
@@ -22,7 +56,7 @@ export function NewsletterSection() {
             </p>
           </div>
 
-          <form className="mx-auto max-w-xl" id="newsletter-form">
+          <form className="mx-auto max-w-xl" id="newsletter-form" onSubmit={handleSubmit}>
             <div className="mb-6 flex flex-col gap-4 sm:flex-row">
               <input
                 className="flex-1 rounded-lg border border-slate-700 bg-slate-900/50 px-6 py-4 text-sm text-white placeholder-gray-500 transition-all focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 focus:outline-none"
@@ -30,11 +64,15 @@ export function NewsletterSection() {
                 placeholder="Enter your email address"
                 required
                 type="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
               />
               <button className="btn-primary !px-8 !py-4 disabled:cursor-not-allowed disabled:opacity-50" type="submit">
                 Subscribe Now
               </button>
             </div>
+            {error ? <p className="text-sm text-red-300">{error}</p> : null}
+            {successMessage ? <p className="text-sm text-emerald-300">{successMessage}</p> : null}
           </form>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-8 border-t border-slate-700 pt-8">

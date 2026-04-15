@@ -1,5 +1,4 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { ProtectedRoute } from './auth/ProtectedRoute'
 import { MainLayout } from './layouts/MainLayout'
 import {
   AboutPage,
@@ -9,9 +8,7 @@ import {
   CategoriesPage,
   GetStartedPage,
   HomePage,
-  LoginPage,
   NotFoundPage,
-  RegisterPage,
 } from './pages'
 
 function App() {
@@ -24,16 +21,7 @@ function App() {
         <Route path="categories" element={<CategoriesPage />} />
         <Route path="categories/:slug" element={<CategoryDetailPage />} />
         <Route path="about" element={<AboutPage />} />
-        <Route
-          path="get-started"
-          element={
-            <ProtectedRoute>
-              <GetStartedPage />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="login" element={<LoginPage />} />
-        <Route path="register" element={<RegisterPage />} />
+        <Route path="get-started" element={<GetStartedPage />} />
       </Route>
       <Route path="home" element={<Navigate to="/" replace />} />
       <Route path="not-found" element={<NotFoundPage />} />

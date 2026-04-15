@@ -106,3 +106,58 @@ export const testimonials = [
     text: '"Finally, a tech publication that understands quantum computing beyond the hype. Their coverage of quantum algorithms and error correction is spot-on and incredibly valuable for researchers."',
   },
 ]
+
+export type RecruiterTrack = {
+  id: string
+  title: string
+  audience: 'Recruiter' | 'Hiring Manager' | 'Engineering Lead'
+  summary: string
+  outcomes: string[]
+  ctaLabel: string
+  ctaPath: string
+}
+
+export const recruiterTracks: RecruiterTrack[] = [
+  {
+    id: 'delivery-readiness',
+    title: 'Product Delivery Readiness',
+    audience: 'Hiring Manager',
+    summary: 'Demonstrates how features move from discovery to deployment with clear implementation ownership.',
+    outcomes: ['Clear release workflow', 'Production-focused UI standards', 'Reliability-first experience design'],
+    ctaLabel: 'View Articles',
+    ctaPath: '/articles',
+  },
+  {
+    id: 'architecture-thinking',
+    title: 'Architecture and Scale Thinking',
+    audience: 'Engineering Lead',
+    summary: 'Shows evidence of modular frontend architecture, route-level separation, and reusable UI patterns.',
+    outcomes: ['Reusable component strategy', 'Scalable routing setup', 'Readable and typed codebase'],
+    ctaLabel: 'Explore Categories',
+    ctaPath: '/categories',
+  },
+  {
+    id: 'team-impact',
+    title: 'Cross-Team Impact Communication',
+    audience: 'Recruiter',
+    summary: 'Highlights communication quality through clear product messaging, polished UI, and user-centered structure.',
+    outcomes: ['Business-aligned storytelling', 'Strong first-impression UX', 'Portfolio-ready presentation'],
+    ctaLabel: 'About This Project',
+    ctaPath: '/about',
+  },
+]
+
+export const enterpriseHighlights = [
+  {
+    title: 'Executive-ready dashboard UI',
+    detail: 'Structured visual hierarchy with metric cards, content sections, and crisp CTAs for quick business scanning.',
+  },
+  {
+    title: 'Interactive content discovery',
+    detail: 'Role-based track filtering, category chips, and search-first experience improve navigation across topics.',
+  },
+  {
+    title: 'Production-minded UX decisions',
+    detail: 'Form validation, graceful states, and reusable styles mirror standards used in enterprise product teams.',
+  },
+]
