@@ -1,16 +1,16 @@
-# TechInsight Hub
+# TechInsight
 
-TechInsight Hub is a frontend-only technology content platform built with React, TypeScript, and Vite. It lets users explore curated articles by category, view detailed article pages, and use local browser-based authentication for demo access to protected routes.
+TechInsight is a frontend-only technology content platform built with React, TypeScript, and Vite. It provides curated articles, category-driven browsing, and a polished multi-page experience with client-side auth for demo flows.
 
-## Features
+## Highlights
 
-- Rich homepage and category browsing experience
-- Articles listing with search and category filtering
-- Category detail pages with related content
-- Article detail pages with tags, sections, and related posts
-- Client-side authentication flow (register/login/logout)
-- Protected route support using local session state
-- Responsive UI with Tailwind CSS and SCSS
+- Modern landing experience with reusable layout and shared styling
+- Articles page with search and category filters
+- Category and article detail pages with related content
+- Generation page for curated learning tracks and onboarding CTA
+- Get Started onboarding flow with multi-step interest selection
+- Client-side authentication context and protected route support
+- Responsive UI using Tailwind utility classes and shared SCSS styles
 
 ## Tech Stack
 
@@ -22,42 +22,56 @@ TechInsight Hub is a frontend-only technology content platform built with React,
 - SCSS
 - ESLint
 
+## Routes
+
+- `/` - Home
+- `/articles` - Articles listing
+- `/article/:id` - Article details
+- `/categories` - Category listing
+- `/categories/:slug` - Category details
+- `/about` - About page
+- `/generation` - Generation page
+- `/get-started` - Onboarding page
+
 ## Project Structure
 
 ```text
 techInsight/
+  public/             # Static assets (favicon, shared icons)
   src/
-    data/             # Local content datasets
-    pages/            # Route pages
-    components/       # Shared and home components
+    assets/           # Frontend static assets
     auth/             # Auth context and protected route
-    lib/              # Frontend API facade (local data service)
-  package.json
+    components/       # Shared UI and feature sections
+    data/             # Local mock content datasets
+    layouts/          # App layouts
+    lib/              # Frontend API facade over local data
+    pages/            # Route pages
+    styles/           # Global SCSS styles
 ```
 
 ## Getting Started
 
-### Install dependencies
+### 1) Install dependencies
 
 ```bash
 npm install
 ```
 
-### Run development server
+### 2) Run development server
 
 ```bash
 npm run dev
 ```
 
-App runs by default at `http://localhost:5173`.
+Default local URL: `http://localhost:5173`
 
-### Build for production
+### 3) Build for production
 
 ```bash
 npm run build
 ```
 
-### Preview production build
+### 4) Preview production build
 
 ```bash
 npm run preview
@@ -65,15 +79,15 @@ npm run preview
 
 ## Available Scripts
 
-- `npm run dev` - start Vite dev server
-- `npm run build` - type-check and build the app
-- `npm run lint` - run ESLint
-- `npm run preview` - preview production build
+- `npm run dev` - Start Vite development server
+- `npm run build` - Run type-check and production build
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview the production build
 
 ## Authentication Note
 
-Authentication is demo-only and runs entirely in the browser with local storage. No external backend or database is required.
+Authentication is demo-only and handled in the browser (local storage/session state). No backend service or external database is required.
 
 ## License
 
-This project is open for educational and portfolio use. Add a formal license (for example, MIT) before public distribution if needed.
+This project is currently intended for learning and portfolio usage. Add a formal license (for example, MIT) before public distribution.
