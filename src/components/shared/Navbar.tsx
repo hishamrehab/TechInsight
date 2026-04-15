@@ -16,11 +16,12 @@ export function Navbar() {
     <nav className="fixed left-0 right-0 top-0 z-50 border-b border-cyan-500/15 bg-slate-950/75 backdrop-blur-xl transition-all duration-500">
       <div className="content-container flex items-center justify-between py-4">
         <NavLink
-          className="cursor-pointer text-2xl font-bold text-white transition-colors hover:text-cyan-200"
+          className="group inline-flex cursor-pointer items-center gap-3 transition-colors"
           to="/"
           onClick={() => setIsMenuOpen(false)}
         >
-          TechInsight
+          <img src="/favicon.svg" alt="TechInsight logo" className="h-9 w-9 rounded-xl border border-cyan-400/25 bg-slate-900/70 p-1.5" />
+          <span className="text-2xl font-bold text-white transition-colors group-hover:text-cyan-200">TechInsight</span>
         </NavLink>
         <div className="hidden items-center gap-8 md:flex">
           {links.map((item) => (
