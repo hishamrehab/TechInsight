@@ -1,6 +1,8 @@
-export const articleCategories = ['All Articles', 'AI & ML', 'Blockchain', 'Quantum', 'Security', 'IoT', 'AR/VR']
+import type { Article, Category } from '../types/api'
 
-export const categories = [
+export const articleCategories: string[] = ['All Articles', 'AI & ML', 'Blockchain', 'Quantum', 'Security', 'IoT', 'AR/VR']
+
+export const categories: Category[] = [
   {
     slug: 'ai',
     label: 'Artificial Intelligence',
@@ -65,7 +67,7 @@ export const categories = [
   },
 ]
 
-export const articles = [
+export const articles: Article[] = [
   {
     id: 1,
     title: 'The Rise of Generative AI: Transforming Creative Industries',
